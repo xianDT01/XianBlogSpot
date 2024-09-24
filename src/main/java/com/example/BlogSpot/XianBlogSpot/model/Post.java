@@ -1,12 +1,9 @@
 package com.example.BlogSpot.XianBlogSpot.model;
 
 import jakarta.persistence.*;
-import org.apache.catalina.User;
-
-import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
+@Table(name = "posts")
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,19 +11,11 @@ public class Post {
 
     private String title;
 
-    @Lob
     private String content;
 
-    private LocalDateTime createdAt;
-
-    // Relación con el autor (usuario)
     @ManyToOne
     @JoinColumn(name = "author_id")
-    private User author;
-
-    // Relación con los comentarios
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Comment> comments;
+    private User author; // Referencia al autor (User)
 
     // Getters y Setters
     public Long getId() {
@@ -53,27 +42,11 @@ public class Post {
         this.content = content;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
     public User getAuthor() {
         return author;
     }
 
     public void setAuthor(User author) {
         this.author = author;
-    }
-
-    public List<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
     }
 }

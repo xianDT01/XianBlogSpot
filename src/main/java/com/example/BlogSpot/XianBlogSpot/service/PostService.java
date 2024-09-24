@@ -5,27 +5,23 @@ import com.example.BlogSpot.XianBlogSpot.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class PostService {
 
-    private final PostRepository postRepository;
-
-    // Inyección de dependencias a través del constructor
     @Autowired
-    public PostService(PostRepository postRepository) {
-        this.postRepository = postRepository;
-    }
+    private PostRepository postRepository;
 
-    // Método para obtener todos los posts
+    // Obtener todos los posts
     public List<Post> getAllPosts() {
-        return postRepository.findAll();
+        return postRepository.findAll(); // Obtiene todos los posts de la base de datos
     }
 
-    // Método para guardar un nuevo post
+    // Guardar un nuevo post
     public Post savePost(Post post) {
-        return postRepository.save(post);
+        return postRepository.save(post); // Guarda el post en la base de datos
     }
 
 

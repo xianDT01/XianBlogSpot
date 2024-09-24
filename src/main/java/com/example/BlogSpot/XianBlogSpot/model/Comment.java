@@ -1,30 +1,25 @@
 package com.example.BlogSpot.XianBlogSpot.model;
 
 import jakarta.persistence.*;
-import org.apache.catalina.User;
 
-import java.time.LocalDateTime;
-
+@Entity
+@Table(name = "comments")
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Lob
     private String content;
 
-    private LocalDateTime createdAt;
-
-    // Relación con el post
-    @ManyToOne
-    @JoinColumn(name = "post_id")
-    private Post post;
-
-    // Relación con el autor del comentario
     @ManyToOne
     @JoinColumn(name = "author_id")
-    private User author;
+    private User author; // Referencia al autor del comentario
 
+    @ManyToOne
+    @JoinColumn(name = "post_id")
+    private Post post; // Referencia al post al que pertenece el comentario
+
+    // Getters y Setters
     public Long getId() {
         return id;
     }
@@ -41,12 +36,12 @@ public class Comment {
         this.content = content;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
+    public User getAuthor() {
+        return author;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+    public void setAuthor(User author) {
+        this.author = author;
     }
 
     public Post getPost() {
@@ -55,13 +50,5 @@ public class Comment {
 
     public void setPost(Post post) {
         this.post = post;
-    }
-
-    public User getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(User author) {
-        this.author = author;
     }
 }
