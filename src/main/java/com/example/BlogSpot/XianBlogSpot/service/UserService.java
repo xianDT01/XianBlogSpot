@@ -36,8 +36,13 @@ public class UserService {
     public User authenticateUser(String email, String password) {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
-        // Verificar la contraseña aquí (implementa tu lógica de comparación)
+
+        // Verificar la contraseña
+        if (!new BCryptPasswordEncoder().matches(password, user.getPassword())) {
+            throw new RuntimeException("Contraseña incorrecta");
+        }
         return user;
     }
+
 
 }

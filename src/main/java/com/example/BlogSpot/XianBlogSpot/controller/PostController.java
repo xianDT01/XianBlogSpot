@@ -33,5 +33,5 @@ public class PostController {
         return new ResponseEntity<>(savedPost, HttpStatus.CREATED);
     }
 
-    
+
 }
