@@ -32,4 +32,15 @@ public class UserController {
         User savedUser = userService.saveUser(user);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody User user) {
+        boolean isValidUser = userService.validateUser(user.getUsername(), user.getPassword());
+        if (isValidUser) {
+            return new ResponseEntity<>("Login exitoso", HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Credenciales incorrectas", HttpStatus.UNAUTHORIZED);
+        }
+    }
+
 }
