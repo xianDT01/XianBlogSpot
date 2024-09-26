@@ -16,7 +16,8 @@ public class User {
     private String username;
 
     private String password;
-
+    @Column(unique = true)
+    private String email;
     @JsonIgnore // Evitar la serialización circular
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Post> posts; // Referencia a los posts del usuario
@@ -52,5 +53,12 @@ public class User {
 
     public void setPosts(List<Post> posts) {
         this.posts = posts;
+    }
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
