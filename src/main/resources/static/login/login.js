@@ -22,7 +22,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     })
     .then(data => {
         // Redirigir a la página principal después de un inicio de sesión exitoso
-        window.location.href = '/posts'; // Cambia '/posts' por la ruta de tu página principal
+        window.location.href = '/posts';
     })
     .catch(error => {
         document.getElementById('responseMessage').innerText = error.message;

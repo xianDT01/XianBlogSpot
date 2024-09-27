@@ -10,4 +10,5 @@ public class XianBlogSpotApplication {
 		SpringApplication.run(XianBlogSpotApplication.class, args);
 	}
 
+
 }

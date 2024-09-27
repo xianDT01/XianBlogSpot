@@ -21,8 +21,12 @@ public class PostService {
 
     // Guardar un nuevo post
     public Post savePost(Post post) {
-        return postRepository.save(post); // Guardar el post en la base de datos
+        Post savedPost = postRepository.save(post);
+        System.out.println("Post guardado: " + savedPost);
+        return savedPost;
     }
+
+
 
 
 }

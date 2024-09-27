@@ -1,6 +1,7 @@
 package com.example.BlogSpot.XianBlogSpot.controller;
 
 import com.example.BlogSpot.XianBlogSpot.model.Post;
+import com.example.BlogSpot.XianBlogSpot.model.User;
 import com.example.BlogSpot.XianBlogSpot.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/posts")
-public class PostController {
+public class    PostController {
 
     private final PostService postService;
 
@@ -25,13 +26,5 @@ public class PostController {
     public List<Post> getAllPosts() {
         return postService.getAllPosts();
     }
-
-    // Crear un nuevo post
-    @PostMapping
-    public ResponseEntity<Post> createPost(@RequestBody Post post) {
-        Post savedPost = postService.savePost(post);
-        return new ResponseEntity<>(savedPost, HttpStatus.CREATED);
-    }
-
 
 }

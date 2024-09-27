@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('/api/posts') // Asegúrate de que esta ruta coincide con tu endpoint para obtener los posts
+    fetch('/api/posts')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error al cargar los posts');
@@ -12,8 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 const postDiv = document.createElement('div');
                 postDiv.classList.add('post');
                 postDiv.innerHTML = `
-                    <h3>${post.title}</h3>
-                    <p>${post.content}</p>
+                    <img src="${post.imageUrl}" alt="Imagen del post">
+                    <div class="post-content">
+                        <h3>${post.title}</h3>
+                        <p>${post.content}</p>
+                    </div>
                 `;
                 postsList.appendChild(postDiv);
             });

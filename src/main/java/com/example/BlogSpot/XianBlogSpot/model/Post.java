@@ -13,6 +13,7 @@ public class Post {
 
     private String content;
 
+    private String imageUrl;
     @ManyToOne
     @JoinColumn(name = "author_id")
     private User author; // Referencia al autor (User)
@@ -20,6 +21,14 @@ public class Post {
     // Getters y Setters
     public Long getId() {
         return id;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public void setId(Long id) {
