@@ -1,3 +1,4 @@
+// JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     fetch('/api/posts')
         .then(response => {
@@ -14,8 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 postDiv.innerHTML = `
                     <img src="${post.imageUrl}" alt="Imagen del post">
                     <div class="post-content">
-                        <h3>${post.title}</h3>
-                        <p>${post.content}</p>
+                        <h3>${post.title}</h3> <!-- Usa el valor del post directamente -->
+                        <p>${post.content}</p> <!-- Usa el valor del post directamente -->
+                        <a href="/detail/${post.id}" class="button">Leer más</a>
                     </div>
                 `;
                 postsList.appendChild(postDiv);
@@ -26,10 +28,4 @@ document.addEventListener('DOMContentLoaded', function() {
             const postsList = document.getElementById('postsList');
             postsList.innerText = 'Error al cargar los posts';
         });
-
-    // Manejo de la creación de un nuevo post
-    document.getElementById('newPostBtn').addEventListener('click', function() {
-        // Redirige a una página para crear un nuevo post (cambia la ruta según tu estructura)
-        window.location.href = '/create-post'; // Ajusta esta ruta según lo que tengas
-    });
 });

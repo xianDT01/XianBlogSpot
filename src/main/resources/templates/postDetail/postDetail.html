@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Posts</title>
-    <link rel="stylesheet" href="/post/post.css"> <!-- Verifica que esta ruta sea correcta -->
+    <title>${post.title}</title>
+    <link rel="stylesheet" href="/post/postDetail.css">
 </head>
 <body>
-
 <nav class="navbar">
     <div class="navbar-logo">
         <a href="#">XianBlogSpot</a>
@@ -18,12 +17,11 @@
     </ul>
 </nav>
 
-<div class="posts-container">
-    <h2>Publicaciones</h2>
-    <div id="postsList"></div>
-    <a href="/posts/new" id="newPostBtn">Crear Nuevo Post</a>
+<div class="post-detail-container">
+    <h2>${post.title}</h2>
+    <img src="${post.imageUrl}" alt="Imagen del post">
+    <p>${post.content}</p>
+    <!-- Aquí puedes agregar más detalles o comentarios -->
 </div>
-
-<script src="/post/post.js"></script>
 </body>
 </html>

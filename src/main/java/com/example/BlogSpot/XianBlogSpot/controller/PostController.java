@@ -27,4 +27,16 @@ public class    PostController {
         return postService.getAllPosts();
     }
 
+    // Obtener un post específico
+    @GetMapping("/{id}")
+    public ResponseEntity<Post> getPostById(@PathVariable Long id) {
+        Post post = postService.getPostById(id);
+        if (post != null) {
+            return ResponseEntity.ok(post);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+    }
+        
+
 }

@@ -26,4 +26,9 @@ public class CommentService {
     public Comment saveComment(Comment comment) {
         return commentRepository.save(comment);
     }
+
+    // Método para obtener comentarios por ID de post
+    public List<Comment> getCommentsByPostId(Long postId) {
+        return commentRepository.findByPostId(postId);
+    }
 }

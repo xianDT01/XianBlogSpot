@@ -32,6 +32,12 @@ public class CommentController {
         Comment savedComment = commentService.saveComment(comment);
         return new ResponseEntity<>(savedComment, HttpStatus.CREATED);
     }
+    // Obtener comentarios por ID de post
+    @GetMapping("/post/{postId}")
+    public ResponseEntity<List<Comment>> getCommentsByPostId(@PathVariable Long postId) {
+        List<Comment> comments = commentService.getCommentsByPostId(postId);
+        return ResponseEntity.ok(comments);
+    }
 
 
 }

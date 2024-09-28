@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PostService {
@@ -26,7 +27,8 @@ public class PostService {
         return savedPost;
     }
 
-
-
-
+    public Post getPostById(Long id) {
+        Optional<Post> post = postRepository.findById(id);
+        return post.orElse(null); // Manejar caso donde el post no existe
+    }
 }
