@@ -1,47 +1,25 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const postId = window.location.pathname.split("/").pop(); // Obtiene el ID del post de la URL
-    fetch(`/api/posts/${postId}`) // Asegúrate de tener una API que devuelva los detalles del post
-        .then(response => response.json())
-        .then(post => {
-            document.getElementById("postTitle").innerText = post.title;
-            document.getElementById("postImage").src = post.imageUrl;
-            document.getElementById("postContent").innerText = post.content;
+document.addEventListener('DOMContentLoaded', function() {
+    const postId = window.location.pathname.split('/').pop();
+    console.log('Post ID:', postId); // Asegúrate de obtener el ID correcto
 
-            // Cargar comentarios existentes
-            loadComments(postId);
-        });
-
-    // Manejar el envío de nuevos comentarios
-    document.getElementById("commentForm").addEventListener("submit", (event) => {
-        event.preventDefault();
-        const comment = document.getElementById("comment").value;
-
-        // Enviar el comentario a tu API
-        fetch(`/api/posts/${postId}/comments`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ comment }),
+    fetch(`/api/posts/${postId}`)
+        .then(response => {
+            console.log('Response status:', response.status);
+            if (!response.ok) {
+                throw new Error('Error al cargar los detalles del post');
+            }
+            return response.json();
         })
-        .then(response => response.json())
-        .then(() => {
-            document.getElementById("comment").value = ""; // Limpiar el textarea
-            loadComments(postId); // Volver a cargar comentarios
-        });
-    });
-});
+        .then(post => {
+            console.log('Post Data:', post); // Asegúrate de obtener los datos correctos
 
-function loadComments(postId) {
-    fetch(`/api/posts/${postId}/comments`) // Asegúrate de tener una API que devuelva los comentarios
-        .then(response => response.json())
-        .then(comments => {
-            const commentsList = document.getElementById("commentsList");
-            commentsList.innerHTML = ""; // Limpiar comentarios existentes
-            comments.forEach(comment => {
-                const commentElement = document.createElement("p");
-                commentElement.innerText = comment.text;
-                commentsList.appendChild(commentElement);
-            });
+            // Renderizar los datos en la página
+            document.getElementById('postTitle').innerText = post.title || 'Título no disponible';
+            document.getElementById('postImage').src = post.imageUrl || '';
+            document.getElementById('postContent').innerText = post.content || 'Contenido no disponible';
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+            document.getElementById('postContent').innerText = 'Error al cargar los detalles del post';
         });
-}
+});

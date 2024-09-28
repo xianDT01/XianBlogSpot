@@ -27,8 +27,8 @@ public class PostService {
         return savedPost;
     }
 
+    // Obtener un post específico
     public Post getPostById(Long id) {
-        Optional<Post> post = postRepository.findById(id);
-        return post.orElse(null); // Manejar caso donde el post no existe
+        return postRepository.findById(id).orElse(null);
     }
 }

@@ -1,4 +1,3 @@
-// JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     fetch('/api/posts')
         .then(response => {
@@ -15,8 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 postDiv.innerHTML = `
                     <img src="${post.imageUrl}" alt="Imagen del post">
                     <div class="post-content">
-                        <h3>${post.title}</h3> <!-- Usa el valor del post directamente -->
-                        <p>${post.content}</p> <!-- Usa el valor del post directamente -->
+                        <h3>${post.title}</h3>
+                        <p>${post.content}</p>
                         <a href="/detail/${post.id}" class="button">Leer más</a>
                     </div>
                 `;

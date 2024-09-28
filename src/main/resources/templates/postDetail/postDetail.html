@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${post.title}</title>
-    <link rel="stylesheet" href="/post/postDetail.css">
+    <title>Detalle del Post</title>
+    <link rel="stylesheet" href="/postDetail/postDetail.css">
 </head>
 <body>
+
 <nav class="navbar">
     <div class="navbar-logo">
         <a href="#">XianBlogSpot</a>
@@ -18,10 +19,11 @@
 </nav>
 
 <div class="post-detail-container">
-    <h2>${post.title}</h2>
-    <img src="${post.imageUrl}" alt="Imagen del post">
-    <p>${post.content}</p>
-    <!-- Aquí puedes agregar más detalles o comentarios -->
+    <h2 id="postTitle"></h2>
+    <img id="postImage" src="" alt="Imagen del post">
+    <p id="postContent"></p>
 </div>
+
+<script src="/postDetail/postDetail.js"></script>
 </body>
 </html>

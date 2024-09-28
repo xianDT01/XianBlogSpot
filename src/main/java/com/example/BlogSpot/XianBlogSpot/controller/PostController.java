@@ -34,9 +34,8 @@ public class    PostController {
         if (post != null) {
             return ResponseEntity.ok(post);
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+            return ResponseEntity.notFound().build();
         }
     }
-        
 
 }
