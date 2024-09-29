@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.stream.events.Comment;
 import java.util.List;
 
 @RestController
@@ -37,5 +38,8 @@ public class    PostController {
             return ResponseEntity.notFound().build();
         }
     }
-
+    @PostMapping("/{postId}/comments")
+    public ResponseEntity<Comment> addComment(@PathVariable Long postId, @RequestBody Comment comment) {
+        return ResponseEntity.ok(comment);
+    }
 }
