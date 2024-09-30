@@ -11,8 +11,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/comments")
@@ -65,10 +67,21 @@ public class CommentController {
 
         return new ResponseEntity<>(savedComment, HttpStatus.CREATED);
     }
+
     // Obtener comentarios por ID de post
     @GetMapping("/post/{postId}")
-    public ResponseEntity<List<Comment>> getCommentsByPostId(@PathVariable Long postId) {
+    public ResponseEntity<List<Map<String, Object>>> getCommentsByPostId(@PathVariable Long postId) {
         List<Comment> comments = commentService.getCommentsByPostId(postId);
-        return ResponseEntity.ok(comments);
+
+        // Crear una lista de mapas para incluir los datos del comentario y el autor
+        List<Map<String, Object>> response = comments.stream().map(comment -> {
+            Map<String, Object> commentData = new HashMap<>();
+            commentData.put("content", comment.getContent());
+            commentData.put("authorName", comment.getAuthor().getUsername());
+            return commentData;
+        }).collect(Collectors.toList());
+
+        return ResponseEntity.ok(response);
     }
+
 }

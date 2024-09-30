@@ -25,28 +25,31 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     // Función para cargar comentarios
-    function loadComments(postId) {
-        fetch(`/api/posts/${postId}/comments`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Error al cargar los comentarios');
-                }
-                return response.json();
-            })
-            .then(comments => {
-                const commentsList = document.getElementById('commentsList');
-                commentsList.innerHTML = '';
-                comments.forEach(comment => {
-                    const commentDiv = document.createElement('div');
-                    commentDiv.classList.add('comment');
-                    commentDiv.innerText = comment.content;  // Asegúrate de usar "content" si ese es el campo que contiene el texto
-                    commentsList.appendChild(commentDiv);
-                });
-            })
-            .catch(error => {
-                console.error('Fetch error:', error);
+function loadComments(postId) {
+    console.log(`Cargando comentarios para el post: ${postId}`);
+    fetch(`/api/comments/post/${postId}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al cargar los comentarios');
+            }
+            return response.json();
+        })
+        .then(comments => {
+            console.log('Comentarios recibidos:', comments);
+            const commentsList = document.getElementById('commentsList');
+            commentsList.innerHTML = '';
+            comments.forEach(comment => {
+                const commentDiv = document.createElement('div');
+                commentDiv.classList.add('comment');
+                commentDiv.innerText = `${comment.authorName}: ${comment.content}`;
+                commentsList.appendChild(commentDiv);
             });
-    }
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+        });
+}
+
 
     // Función para agregar un nuevo comentario
     document.getElementById('submitComment').addEventListener('click', function() {
