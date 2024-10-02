@@ -23,7 +23,7 @@ public class PostViewController {
     public String showPostsPage(Model model) {
         List<Post> posts = postService.getAllPosts();
         model.addAttribute("posts", posts);
-        return "post/posts"; // Asegúrate de que esta plantilla exista
+        return "post/posts";
     }
 
     // Mostrar el formulario para crear un nuevo post

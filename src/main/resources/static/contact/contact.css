@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ecf0f1; /* Gris Claro */
+    color: #2c3e50; /* Azul Oscuro */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.navbar {
+    background-color: #3498db; /* Celeste */
+    padding: 1rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-logo a {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: #f1c40f; /* Amarillo Claro */
+}
+
+.contact-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 2rem auto;
+    border-radius: 12px;
+}
+
+.contact-container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #3498db; /* Celeste */
+}
+
+.contact-info {
+    text-align: center;
+}
+
+.contact-logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 1.5rem;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info p {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #2c3e50; /* Azul Oscuro */
+}
+
+.github-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 2rem;
+    background-color: #3498db; /* Celeste */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.github-button:hover {
+    background-color: #f1c40f; /* Amarillo Claro */
+    color: #2c3e50; /* Azul Oscuro */
+}
+
+footer {
+    background-color: #3498db; /* Celeste */
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: auto;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
