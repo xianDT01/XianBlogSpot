@@ -62,7 +62,11 @@ public class PostController {
 
     // Búsqueda de posts por palabra clave
     @GetMapping("/search")
-    public List<Post> searchPosts(@RequestParam("keyword") String keyword) {
-        return postService.searchPosts(keyword);
+    public ResponseEntity<Page<Post>> searchPosts(@RequestParam String keyword,
+                                                  @RequestParam(defaultValue = "0") int page,
+                                                  @RequestParam(defaultValue = "5") int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Post> posts = postRepository.findByTitleContainingOrContentContaining(keyword, keyword, pageable);
+        return ResponseEntity.ok(posts);
     }
 }

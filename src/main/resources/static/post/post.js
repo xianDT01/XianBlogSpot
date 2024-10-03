@@ -5,9 +5,16 @@ document.addEventListener('DOMContentLoaded', function () {
     const prevButton = document.getElementById('prevPage');
     const nextButton = document.getElementById('nextPage');
     const pageIndicator = document.getElementById('pageIndicator');
+    const searchForm = document.getElementById('searchForm');
+    const searchInput = document.getElementById('searchInput');
+    let searchKeyword = ''; // Para almacenar la palabra clave de búsqueda
 
     function loadPosts(page) {
-        fetch(`/api/posts/paginated?page=${page}&size=${pageSize}`)
+        const url = searchKeyword
+            ? `/api/posts/search?keyword=${searchKeyword}&page=${page}&size=${pageSize}`
+            : `/api/posts/paginated?page=${page}&size=${pageSize}`;
+
+        fetch(url)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Error al cargar los posts');
@@ -17,6 +24,11 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 const posts = data.content; // Contenido de la página actual
                 postsList.innerHTML = ''; // Limpiar lista de posts
+
+                if (posts.length === 0) {
+                    postsList.innerText = 'No se encontraron posts.';
+                    return;
+                }
 
                 posts.forEach(post => {
                     const postDiv = document.createElement('div');
@@ -45,7 +57,15 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     }
 
-    // Manejo del botón de página anterior
+    // Manejo del formulario de búsqueda
+    searchForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        searchKeyword = searchInput.value; // Actualizar la palabra clave de búsqueda
+        currentPage = 0; // Resetear la página a 0 al buscar
+        loadPosts(currentPage); // Cargar posts con la nueva búsqueda
+    });
+
+    // Navegación a la página anterior
     prevButton.addEventListener('click', function () {
         if (currentPage > 0) {
             currentPage--;
@@ -53,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Manejo del botón de página siguiente
+    // Navegación a la siguiente página
     nextButton.addEventListener('click', function () {
         currentPage++;
         loadPosts(currentPage);
