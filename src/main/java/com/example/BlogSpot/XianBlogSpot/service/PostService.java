@@ -34,4 +34,9 @@ public class PostService {
     public Post findById(Long postId) {
         return postRepository.findById(postId).orElse(null);
     }
+
+    // Método para buscar posts por palabra clave
+    public List<Post> searchPosts(String keyword) {
+        return postRepository.searchPosts(keyword);
+    }
 }
