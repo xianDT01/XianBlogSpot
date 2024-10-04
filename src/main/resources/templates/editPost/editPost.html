@@ -1,0 +1,27 @@
+<div class="edit-post-container">
+    <h2>Editar Post</h2>
+    <link rel="stylesheet" href="/editPost/editPost.css">
+    <form id="editPostForm">
+        <!-- Combobox para elegir el post a editar -->
+        <label for="postSelect">Selecciona un post:</label>
+        <select id="postSelect" required>
+            <!-- Las opciones se cargarán dinámicamente desde la API -->
+        </select>
+
+        <!-- Título del post -->
+        <label for="postTitle">Título:</label>
+        <input type="text" id="postTitle" placeholder="Título del post" required>
+
+        <!-- Contenido del post -->
+        <label for="postContent">Contenido:</label>
+        <textarea id="postContent" placeholder="Contenido del post" rows="5" required></textarea>
+
+        <!-- Imagen del post -->
+        <label for="postImageUrl">URL de la Imagen:</label>
+        <input type="text" id="postImageUrl" placeholder="URL de la imagen">
+
+        <!-- Botón para enviar -->
+        <button type="submit">Guardar Cambios</button>
+        <script src="/editPost/editPost.js"></script>
+    </form>
+</div>

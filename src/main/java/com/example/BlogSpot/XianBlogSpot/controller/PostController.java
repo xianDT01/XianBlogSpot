@@ -42,6 +42,23 @@ public class PostController {
             return ResponseEntity.notFound().build();
         }
     }
+    // Editar un post
+    @PutMapping("/{id}")
+    public ResponseEntity<Post> updatePost(@PathVariable Long id, @RequestBody Post updatedPost) {
+        Post post = postService.getPostById(id);
+
+        if (post != null) {
+            post.setTitle(updatedPost.getTitle());
+            post.setContent(updatedPost.getContent());
+            post.setImageUrl(updatedPost.getImageUrl()); // Si también se permite actualizar la imagen
+
+            Post savedPost = postService.savePost(post); // Guardar el post actualizado
+            return ResponseEntity.ok(savedPost);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 
     // Agregar un comentario
     @PostMapping("/{postId}/comments")

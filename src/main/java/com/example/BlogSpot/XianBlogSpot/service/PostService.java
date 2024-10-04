@@ -39,4 +39,5 @@ public class PostService {
     public List<Post> searchPosts(String keyword) {
         return postRepository.searchPosts(keyword);
     }
+
 }

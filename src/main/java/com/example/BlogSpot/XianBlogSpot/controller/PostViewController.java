@@ -51,5 +51,10 @@ public class PostViewController {
             return "redirect:/posts";
         }
     }
+    @GetMapping("/posts/edit")
+    public String showEditPostPage() {
+        return "editPost/editPost";
+    }
+
 
 }
