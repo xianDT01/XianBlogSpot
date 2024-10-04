@@ -1,6 +1,7 @@
 package com.example.BlogSpot.XianBlogSpot.controller;
 
 import com.example.BlogSpot.XianBlogSpot.model.Post;
+import com.example.BlogSpot.XianBlogSpot.repository.CommentRepository;
 import com.example.BlogSpot.XianBlogSpot.repository.PostRepository;
 import com.example.BlogSpot.XianBlogSpot.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/posts")
@@ -20,6 +22,8 @@ public class PostController {
 
     @Autowired
     private PostRepository postRepository;
+    @Autowired
+    private CommentRepository commentRepository;
 
     @Autowired
     public PostController(PostService postService) {
@@ -58,6 +62,27 @@ public class PostController {
             return ResponseEntity.notFound().build();
         }
     }
+    // Borrar un post
+// Borrar un post
+    @DeleteMapping("/{id}") // Cambia esto
+    public ResponseEntity<Void> deletePost(@PathVariable Long id) {
+        Optional<Post> postOptional = postRepository.findById(id);
+
+        if (postOptional.isPresent()) {
+            Post post = postOptional.get();
+
+            // Eliminar todos los comentarios asociados al post
+            commentRepository.deleteByPostId(post.getId());
+
+            // Eliminar el post
+            postRepository.delete(post);
+
+            return ResponseEntity.ok().build(); // Retornar respuesta 200 OK
+        } else {
+            return ResponseEntity.notFound().build(); // Retornar respuesta 404 si el post no se encuentra
+        }
+    }
+
 
 
     // Agregar un comentario

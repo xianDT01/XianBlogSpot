@@ -56,5 +56,11 @@ public class PostViewController {
         return "editPost/editPost";
     }
 
+    @GetMapping("/posts/delete")
+    public String showDeletePostPage() {
+        return "deletePost/deletePost"; // Asegúrate de que la ruta a tu HTML de eliminación sea correcta
+    }
+
+
 
 }

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Post</title>
+    <link rel="stylesheet" href="/post/post.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="navbar-logo">
+        <a href="/">XianBlogSpot</a>
+    </div>
+    <ul class="navbar-links">
+        <li><a href="/posts">Inicio</a></li>
+        <li><a href="/contact">Contacto</a></li>
+    </ul>
+</nav>
+
+<div class="posts-container">
+    <h2>Eliminar Post</h2>
+    <form id="deletePostForm">
+        <label for="postSelect">Selecciona el post a eliminar:</label>
+        <select id="postSelect" name="postSelect">
+            <!-- Aquí se rellenarán los posts dinámicamente con JavaScript -->
+        </select>
+
+        <div id="postDetails">
+            <!-- Aquí se mostrará la información del post seleccionado -->
+        </div>
+
+        <button type="button" id="deletePostBtn">Eliminar Post</button>
+    </form>
+</div>
+
+<script src="/deletePost/deletePost.js"></script>
+</body>
+</html>
