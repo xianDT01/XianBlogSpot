@@ -10,7 +10,7 @@ XianBlogSpot es una aplicación de blog simple donde los usuarios pueden registr
 - Comentar en publicaciones.
 - Búsqueda de publicaciones por título.
 - Paginación de publicaciones.
-- 
+
 ## Tecnologías Utilizadas
 
 - **Backend**: Spring Boot
