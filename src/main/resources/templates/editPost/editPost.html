@@ -1,27 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Post</title>
+    <link rel="stylesheet" href="/editPost/editPost.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="navbar-logo">
+        <a href="/">XianBlogSpot</a>
+    </div>
+    <ul class="navbar-links">
+        <li><a href="/posts">Inicio</a></li>
+        <li><a href="/contact">Contacto</a></li>
+    </ul>
+</nav>
+
 <div class="edit-post-container">
     <h2>Editar Post</h2>
-    <link rel="stylesheet" href="/editPost/editPost.css">
     <form id="editPostForm">
-        <!-- Combobox para elegir el post a editar -->
         <label for="postSelect">Selecciona un post:</label>
         <select id="postSelect" required>
             <!-- Las opciones se cargarán dinámicamente desde la API -->
         </select>
 
-        <!-- Título del post -->
         <label for="postTitle">Título:</label>
         <input type="text" id="postTitle" placeholder="Título del post" required>
 
-        <!-- Contenido del post -->
         <label for="postContent">Contenido:</label>
         <textarea id="postContent" placeholder="Contenido del post" rows="5" required></textarea>
 
-        <!-- Imagen del post -->
         <label for="postImageUrl">URL de la Imagen:</label>
         <input type="text" id="postImageUrl" placeholder="URL de la imagen">
 
-        <!-- Botón para enviar -->
         <button type="submit">Guardar Cambios</button>
-        <script src="/editPost/editPost.js"></script>
     </form>
 </div>
+
+<script src="/editPost/editPost.js"></script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Posts</title>
+    <title>Publicaciones - XianBlogSpot</title>
     <link rel="stylesheet" href="/post/post.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
@@ -19,23 +19,30 @@
     </ul>
 </nav>
 
-<div class="posts-container">
+<header class="header">
     <h2>Publicaciones Recientes</h2>
-    <form id="searchForm">
+</header>
+
+<main class="main-content">
+    <form id="searchForm" class="search-bar">
         <input type="text" id="searchInput" placeholder="Buscar posts..." required>
-        <button type="submit">Buscar</button>
+        <button type="submit" class="search-btn">Buscar</button>
     </form>
 
     <div id="postsList" class="posts-grid"></div>
+
     <div class="pagination">
         <button id="prevPage" class="pagination-btn" disabled>Anterior</button>
         <span id="pageIndicator"></span>
         <button id="nextPage" class="pagination-btn">Siguiente</button>
     </div>
-    <a href="/posts/new" id="newPostBtn">Crear Nuevo Post</a>
-    <a href="/posts/edit" id="editPostBtn">Editar Post</a>
-    <a href="/posts/delete" id="deletePostBtn">Borrar Posts</a>
-</div>
+</main>
+
+<footer class="footer">
+    <a href="/posts/new" id="newPostBtn" class="action-btn">Crear Nuevo Post</a>
+    <a href="/posts/edit" id="editPostBtn" class="action-btn">Editar Post</a>
+    <a href="/posts/delete" id="deletePostBtn" class="action-btn">Borrar Posts</a>
+</footer>
 
 <script src="/post/post.js"></script>
 </body>

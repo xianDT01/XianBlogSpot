@@ -1,117 +1,119 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Estilos generales */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #ecf0f1; /* Gris Claro */
-    color: #2c3e50; /* Azul Oscuro */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
 }
 
+/* Barra de navegación */
 .navbar {
-    background-color: #3498db; /* Celeste */
-    padding: 1rem;
-    color: white;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #007bff;
+    padding: 15px 30px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-logo a {
+    font-size: 1.7rem;
+    font-weight: bold;
     color: white;
-    font-size: 1.8rem;
-    font-weight: 700;
     text-decoration: none;
 }
 
 .navbar-links {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li {
+    margin-left: 20px;
 }
 
 .navbar-links a {
     color: white;
+    font-size: 1.1rem;
     text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    padding: 8px 12px;
+    transition: background-color 0.3s ease;
 }
 
 .navbar-links a:hover {
-    color: #f1c40f; /* Amarillo Claro */
+    background-color: #0056b3;
+    border-radius: 5px;
 }
 
+/* Contenedor de contacto */
 .contact-container {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 3rem;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
     background-color: white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: 2rem auto;
-    border-radius: 12px;
+    border-radius: 8px;
+    text-align: center;
 }
 
-.contact-container h2 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: #3498db; /* Celeste */
+h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
 }
 
 .contact-info {
-    text-align: center;
+    margin-top: 20px;
 }
 
 .contact-logo {
     width: 150px;
-    height: auto;
-    margin-bottom: 1.5rem;
+    height: 150px;
     border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.contact-info p {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: #2c3e50; /* Azul Oscuro */
+.creator-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.developer-role {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
 }
 
 .github-button {
     display: inline-block;
-    margin-top: 1rem;
-    padding: 0.75rem 2rem;
-    background-color: #3498db; /* Celeste */
+    background-color: #24292f;
     color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
     text-decoration: none;
-    border-radius: 8px;
     font-weight: 600;
-    transition: background-color 0.3s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
 }
 
 .github-button:hover {
-    background-color: #f1c40f; /* Amarillo Claro */
-    color: #2c3e50; /* Azul Oscuro */
+    background-color: #444d56;
 }
 
+/* Pie de página */
 footer {
-    background-color: #3498db; /* Celeste */
-    color: white;
     text-align: center;
-    padding: 1rem 0;
-    margin-top: auto;
-}
-
-footer p {
-    margin: 0;
+    padding: 10px 0;
+    background-color: #007bff;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     font-size: 0.9rem;
 }
+s

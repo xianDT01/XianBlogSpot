@@ -9,9 +9,10 @@
 </head>
 <body>
 
+<!-- Barra de navegación -->
 <nav class="navbar">
     <div class="navbar-logo">
-        <a href="#">XianBlogSpot</a>
+        <a href="/">XianBlogSpot</a>
     </div>
     <ul class="navbar-links">
         <li><a href="/posts">Inicio</a></li>
@@ -19,22 +20,23 @@
     </ul>
 </nav>
 
+<!-- Contenedor del formulario -->
 <div class="form-container">
     <h2>Crear Nuevo Post</h2>
     <form action="/posts/create" method="POST">
-    <div class="form-group">
+        <div class="form-group">
             <label for="title">Título:</label>
-            <input type="text" id="title" name="title" required>
+            <input type="text" id="title" name="title" placeholder="Escribe el título aquí..." required>
         </div>
         <div class="form-group">
             <label for="content">Contenido:</label>
-            <textarea id="content" name="content" rows="5" required></textarea>
+            <textarea id="content" name="content" rows="5" placeholder="Escribe el contenido aquí..." required></textarea>
         </div>
         <div class="form-group">
             <label for="imageUrl">URL de la Imagen:</label>
-            <input type="text" id="imageUrl" name="imageUrl">
+            <input type="text" id="imageUrl" name="imageUrl" placeholder="URL de la imagen (opcional)">
         </div>
-        <button type="submit" id="createPostBtn">Publicar</button>
+        <button type="submit" id="createPostBtn" class="btn-submit">Publicar</button>
     </form>
 </div>
 

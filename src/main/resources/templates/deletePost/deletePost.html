@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eliminar Post</title>
-    <link rel="stylesheet" href="/post/post.css">
+    <link rel="stylesheet" href="/deletePost/deletePost.css">
 </head>
 <body>
 
@@ -27,10 +27,12 @@
         </select>
 
         <div id="postDetails">
-            <!-- Aquí se mostrará la información del post seleccionado -->
+            <h3 id="postTitle"></h3>
+            <p id="postDescription"></p>
+            <p><strong>Autor:</strong> <span id="postAuthor"></span></p>
         </div>
 
-        <button type="button" id="deletePostBtn">Eliminar Post</button>
+        <button type="button" id="deletePostBtn" class="btn-delete">Eliminar Post</button>
     </form>
 </div>
 
