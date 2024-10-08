@@ -4,6 +4,9 @@ import com.example.BlogSpot.XianBlogSpot.model.Post;
 import com.example.BlogSpot.XianBlogSpot.repository.CommentRepository;
 import com.example.BlogSpot.XianBlogSpot.repository.PostRepository;
 import com.example.BlogSpot.XianBlogSpot.service.PostService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -31,12 +34,20 @@ public class PostController {
     }
 
     // Obtener todos los posts
+    // Obtener todos los posts
+    @Operation(summary = "Obtener todos los posts", description = "Devuelve una lista de todos los posts disponibles")
+    @ApiResponse(responseCode = "200", description = "Lista de posts recuperada con éxito")
     @GetMapping
     public List<Post> getAllPosts() {
         return postService.getAllPosts();
     }
 
     // Obtener un post específico
+    @Operation(summary = "Obtener un post por ID", description = "Devuelve el post solicitado según su ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Post encontrado"),
+            @ApiResponse(responseCode = "404", description = "Post no encontrado")
+    })
     @GetMapping("/{id}")
     public ResponseEntity<Post> getPostById(@PathVariable Long id) {
         Post post = postService.getPostById(id);
@@ -47,6 +58,11 @@ public class PostController {
         }
     }
     // Editar un post
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Post actualizado con éxito"),
+            @ApiResponse(responseCode = "404", description = "Post no encontrado")
+    })
+
     @PutMapping("/{id}")
     public ResponseEntity<Post> updatePost(@PathVariable Long id, @RequestBody Post updatedPost) {
         Post post = postService.getPostById(id);
@@ -63,7 +79,13 @@ public class PostController {
         }
     }
     // Borrar un post
-// Borrar un post
+
+    @Operation(summary = "Eliminar un post", description = "Elimina un post según su ID y borra los comentarios asociados")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Post eliminado con éxito"),
+            @ApiResponse(responseCode = "404", description = "Post no encontrado")
+    })
+
     @DeleteMapping("/{id}") // Cambia esto
     public ResponseEntity<Void> deletePost(@PathVariable Long id) {
         Optional<Post> postOptional = postRepository.findById(id);
@@ -86,6 +108,8 @@ public class PostController {
 
 
     // Agregar un comentario
+    @Operation(summary = "Agregar un comentario a un post", description = "Agrega un comentario a un post específico")
+    @ApiResponse(responseCode = "200", description = "Comentario agregado con éxito")
     @PostMapping("/{postId}/comments")
     public ResponseEntity<String> addComment(@PathVariable Long postId, @RequestBody String comment) {
         // Lógica para agregar comentario
@@ -93,6 +117,9 @@ public class PostController {
     }
 
     // Obtener posts con paginación
+    @Operation(summary = "Obtener posts paginados", description = "Devuelve una lista de posts paginada")
+    @ApiResponse(responseCode = "200", description = "Lista de posts paginada recuperada con éxito")
+
     @GetMapping("/paginated")
     public Page<Post> getAllPostsPaginated(
             @RequestParam(defaultValue = "0") int page,
@@ -103,6 +130,9 @@ public class PostController {
     }
 
     // Búsqueda de posts por palabra clave
+    @Operation(summary = "Buscar posts por palabra clave", description = "Busca posts que contengan una palabra clave en el título o contenido")
+    @ApiResponse(responseCode = "200", description = "Resultados de búsqueda devueltos con éxito")
+
     @GetMapping("/search")
     public ResponseEntity<Page<Post>> searchPosts(@RequestParam String keyword,
                                                   @RequestParam(defaultValue = "0") int page,
