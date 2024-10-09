@@ -30,7 +30,7 @@ public class PostViewController {
     @GetMapping("/posts/new")
     public String showNewPostForm(Model model) {
         model.addAttribute("post", new Post()); // Para enlazar el formulario con un nuevo post
-        return "newPost/new"; // Asegúrate de que esta plantilla exista
+        return "newPost/new";
     }
 
     // Crear un nuevo post y redirigir
@@ -58,7 +58,11 @@ public class PostViewController {
 
     @GetMapping("/posts/delete")
     public String showDeletePostPage() {
-        return "deletePost/deletePost"; // Asegúrate de que la ruta a tu HTML de eliminación sea correcta
+        return "deletePost/deletePost";
+    }
+    @GetMapping("/")
+    public String showHomePage() {
+        return "home/home";
     }
 
 

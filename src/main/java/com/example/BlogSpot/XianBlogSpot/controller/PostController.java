@@ -34,7 +34,6 @@ public class PostController {
     }
 
     // Obtener todos los posts
-    // Obtener todos los posts
     @Operation(summary = "Obtener todos los posts", description = "Devuelve una lista de todos los posts disponibles")
     @ApiResponse(responseCode = "200", description = "Lista de posts recuperada con éxito")
     @GetMapping

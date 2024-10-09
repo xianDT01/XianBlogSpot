@@ -1,0 +1,115 @@
+/* General Style */
+body {
+    font-family: 'Poppins', sans-serif; /* Updated to match the general aesthetic */
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Header Style */
+header {
+    background-color: #4CAF50; /* Consistent with the aesthetic */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.header-content {
+    max-width: 900px; /* Centering the header content */
+    margin: 0 auto;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+/* Navigation Menu Style */
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Main Style */
+main {
+    padding: 20px;
+    max-width: 900px; /* Centering the main content */
+    margin: 20px auto;
+}
+
+main h2 {
+    font-size: 1.8em;
+    margin-top: 0;
+}
+
+main p, main ul {
+    line-height: 1.6;
+    font-size: 1.1em;
+}
+
+/* Section Style */
+section {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* List Style */
+ul {
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+/* Footer Style */
+footer {
+    background-color: #333; /* Consistent with the aesthetic */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    nav ul li {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    main {
+        padding: 10px;
+    }
+}
