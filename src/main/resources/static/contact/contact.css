@@ -18,7 +18,7 @@ body {
 }
 
 .navbar-logo a {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color: white;
     text-decoration: none;
@@ -37,33 +37,33 @@ body {
 
 .navbar-links a {
     color: white;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     text-decoration: none;
-    padding: 8px 12px;
+    padding: 10px 15px;
+    border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
 .navbar-links a:hover {
     background-color: #0056b3;
-    border-radius: 5px;
 }
 
 /* Contenedor de contacto */
 .contact-container {
     max-width: 600px;
-    margin: 40px auto;
-    padding: 20px;
+    margin: 80px auto;
+    padding: 40px;
     background-color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
     text-align: center;
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 600;
     color: #333;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .contact-info {
@@ -79,23 +79,23 @@ h2 {
 }
 
 .creator-name {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     font-weight: 600;
     color: #333;
 }
 
 .developer-role {
-    font-size: 1.1rem;
-    color: #555;
-    margin-bottom: 20px;
+    font-size: 1.2rem;
+    color: #777;
+    margin-bottom: 30px;
 }
 
 .github-button {
     display: inline-block;
     background-color: #24292f;
     color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 12px 25px;
+    border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
     transition: background-color 0.3s ease;
@@ -108,12 +108,11 @@ h2 {
 /* Pie de página */
 footer {
     text-align: center;
-    padding: 10px 0;
+    padding: 15px 0;
     background-color: #007bff;
     color: white;
     position: fixed;
     bottom: 0;
     width: 100%;
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
-s
