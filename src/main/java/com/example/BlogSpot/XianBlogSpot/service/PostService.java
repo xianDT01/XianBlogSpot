@@ -5,9 +5,7 @@ import com.example.BlogSpot.XianBlogSpot.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PostService {
@@ -31,6 +29,7 @@ public class PostService {
     public Post getPostById(Long id) {
         return postRepository.findById(id).orElse(null);
     }
+
     public Post findById(Long postId) {
         return postRepository.findById(postId).orElse(null);
     }
@@ -39,5 +38,4 @@ public class PostService {
     public List<Post> searchPosts(String keyword) {
         return postRepository.searchPosts(keyword);
     }
-
 }
