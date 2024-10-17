@@ -55,4 +55,13 @@
             assertNotNull(foundPost);
             assertEquals("Test1", foundPost.getTitle());
         }
+        @Test
+        public void testGetPostById_NotFound() {
+            when(postRepository.findById(1L)).thenReturn(Optional.empty());
+
+            Post foundPost = postService.getPostById(1L);
+            assertNull(foundPost);
+        }
+
+
     }
