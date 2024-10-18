@@ -62,6 +62,18 @@
             Post foundPost = postService.getPostById(1L);
             assertNull(foundPost);
         }
+        @Test
+        public void testDeletePostById() {
+            // Tenemos un post con ID 1L
+            Long postId = 1L;
+
+            // Acción: llamamos al método deletePostById del servicio
+            postService.deletePostById(postId);
+
+            // Verificación: aseguramos que el método deleteById del repositorio se haya llamado una vez con el postId
+            verify(postRepository, times(1)).deleteById(postId);
+        }
+
 
 
     }

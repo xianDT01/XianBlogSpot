@@ -38,4 +38,8 @@ public class PostService {
     public List<Post> searchPosts(String keyword) {
         return postRepository.searchPosts(keyword);
     }
+    // Eliminar un post por ID
+    public void deletePostById(Long id) {
+        postRepository.deleteById(id);
+    }
 }
