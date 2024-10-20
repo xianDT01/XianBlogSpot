@@ -74,6 +74,15 @@
             verify(postRepository, times(1)).deleteById(postId);
         }
 
-
-
+        @Test
+        public void testSavePost_CallsRepositorySave() {
+            Post post = new Post();
+            post.setTitle("Titulo");
+            post.setContent("Contenido");
+            post.setImageUrl("Imagen url");
+            // Se llama al método savePost del servicio
+            postService.savePost(post);
+            // Se verifica que el método save() del repositorio fue llamado una vez con el post correcto
+            verify(postRepository, times(1)).save(post);
+        }
     }
