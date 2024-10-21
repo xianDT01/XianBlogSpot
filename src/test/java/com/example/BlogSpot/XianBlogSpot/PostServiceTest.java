@@ -85,4 +85,23 @@
             // Se verifica que el método save() del repositorio fue llamado una vez con el post correcto
             verify(postRepository, times(1)).save(post);
         }
+
+        @Test
+        public void testGetPostById_ReturnsPost() {
+            Post post = new Post();
+            post.setId(1L);
+            post.setTitle("Post de prueba");
+
+            // Se simula que el repositorio devuelve un Optional con el post cuando se busca por ID
+            when(postRepository.findById(1L)).thenReturn(Optional.of(post));
+
+            // Llamamos al método del servicio
+            Post foundPost = postService.getPostById(1L);
+
+            // Se verifica que no es nulo y que el título del post encontrado es el correcto
+            assertNotNull(foundPost);
+            assertEquals("Post de prueba", foundPost.getTitle());
+            assertEquals(1L, foundPost.getId());
+        }
+
     }
