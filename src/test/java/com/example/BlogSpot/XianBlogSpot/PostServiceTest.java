@@ -104,4 +104,12 @@
             assertEquals(1L, foundPost.getId());
         }
 
+        @Test
+        public void testSavePost_NullPost() {
+            // Se intenta guardar un post nulo
+            Post savedPost = postService.savePost(null);
+
+            // Se verifica que el post guardado es nulo
+            assertNull(savedPost);
+        }
     }
