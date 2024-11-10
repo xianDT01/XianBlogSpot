@@ -112,10 +112,5 @@
             // Se verifica que el post guardado es nulo
             assertNull(savedPost);
         }
-        @Test
-        public void testDeletePostById2() {
-            Long postId = 1L;
-            postService.deletePostById(postId);
-            verify(postRepository, times(1)).deleteById(postId);
-        }
+
     }
